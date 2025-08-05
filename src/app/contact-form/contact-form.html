@@ -1,27 +1,30 @@
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
-  <div>
-    <label for="name">Name</label>
-    <input id="name" formControlName="name" />
-    <div class="error" *ngIf="getError('name')">
-      {{ getError('name') }}
+<div>
+  <h2>Contact Form</h2>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+    <div>
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" />
+      <div class="error" *ngIf="getError('name')">
+        {{ getError('name') }}
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label for="email">Email</label>
-    <input id="email" formControlName="email" />
-      <div class="error" *ngIf="getError('email')">
-      {{ getError('email') }}
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" />
+        <div class="error" *ngIf="getError('email')">
+        {{ getError('email') }}
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label for="message">Message</label>
-    <textarea id="message" formControlName="message"></textarea>
-    <div class="error" *ngIf="getError('message')">
-      {{ getError('message') }}
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" formControlName="message"></textarea>
+      <div class="error" *ngIf="getError('message')">
+        {{ getError('message') }}
+      </div>
     </div>
-  </div>
 
-  <button type="submit">Send</button>
-</form>
+    <button type="submit">Send</button>
+  </form>
+</div>

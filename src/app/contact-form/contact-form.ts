@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormValidation } from '../helpers/form-validation.helper';
 
 @Component({
   selector: 'app-contact-form',
@@ -19,6 +20,10 @@ export class ContactForm {
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required, Validators.minLength(10)]],
     });
+  }
+
+  getError(field: string): string | null {
+    return FormValidation.getFirstError(this.contactForm, field, this.submitted());
   }
 
   get f() {
